@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D _rb;
     private BoxCollider2D _boxCollider;
 
-    private bool _isHolding;
+    private bool _isHolding = false;
+    private bool _canReload = false;
+
     private GameObject _pickedObject;
+    private GameObject _currentCatapulte;
 
     private int _life;
     [SerializeField]
@@ -29,8 +32,21 @@ public class PlayerController : MonoBehaviour {
         {          
             if(Input.GetKeyDown(KeyCode.E))
             {
-                PutDown();
+                if(_canReload)
+                {
+                    _currentCatapulte.GetComponent<Catapulte>().Reload(_pickedObject);
+                    _pickedObject = null;
+                    _isHolding = false;
+                }
+                else
+                {
+                    PutDown();
+                }
             }
+        }
+        else if(_canReload && _currentCatapulte.GetComponent<Catapulte>()._isLoaded && Input.GetKeyDown(KeyCode.X))
+        {
+            _currentCatapulte.GetComponent<Catapulte>().Shoot();
         }
 
 	}
@@ -47,8 +63,25 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("Trigger");
             Pickup(collision.gameObject);
+        }        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Catapulte")
+        {
+            _currentCatapulte = collision.gameObject;
+            _canReload = true;
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Catapulte")
+        {
+            _currentCatapulte = null;
+            _canReload = false;
+        }
+    }
+
     private void Pickup(GameObject _pickable)
     {
         _pickable.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
@@ -64,6 +97,7 @@ public class PlayerController : MonoBehaviour {
         _isHolding = false;
         _pickedObject.transform.parent = null;
     }
+    
     IEnumerator Wait()
     {
         yield return new WaitForEndOfFrame();
