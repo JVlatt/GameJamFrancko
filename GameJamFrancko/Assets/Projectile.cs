@@ -9,9 +9,6 @@ public class Projectile : MonoBehaviour {
     private float _speed = 4;
     private bool _canMove = false;
 
-    private float _cooldown = 0.2f;
-    private float _timer = 0;
-
     private CircleCollider2D _collider;
 
     private void Start()
@@ -29,22 +26,13 @@ public class Projectile : MonoBehaviour {
 
     private void Update()
     {
-        if (_timer > 0)
-            _timer -= Time.deltaTime;
 
         if (_canMove)
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
         if (transform.position == _target)
-            _canMove = false;
-
-        if(_timer <= 0 && !_collider.enabled && transform.parent == null)
         {
+            _canMove = false;
             _collider.enabled = true;
-            
         }
-    }
-    public void Cooldown()
-    {
-        _timer = _cooldown;
     }
 }

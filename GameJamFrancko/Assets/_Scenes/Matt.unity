@@ -219,6 +219,7 @@ MonoBehaviour:
   - Horizontal2
   - Vertical2
   _speed: 0.1
+  _pickupCooldown: 0
 --- !u!4 &185887176
 Transform:
   m_ObjectHideFlags: 0
@@ -539,6 +540,7 @@ MonoBehaviour:
   - Horizontal1
   - Vertical1
   _speed: 0.1
+  _pickupCooldown: 0.1
 --- !u!4 &1537889841
 Transform:
   m_ObjectHideFlags: 0
