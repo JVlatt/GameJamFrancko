@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
     private bool _canMove = false;
 
     [SerializeField]
-    private float _cooldown = 0.2f;
+    private float _cooldown = 1f;
     private float _timer = 0;
 
     private CircleCollider2D _collider;
@@ -37,13 +37,15 @@ public class Projectile : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
         if (transform.position == _target)
             _canMove = false;
+
         if(_timer <= 0 && !_collider.enabled && transform.parent == null)
         {
             _collider.enabled = true;
-            _timer = _cooldown;
+            
         }
-
-
-
+    }
+    public void Cooldown()
+    {
+        _timer = _cooldown;
     }
 }

@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour {
         _pickedObject.transform.position = transform.position;
         _pickedObject.transform.rotation = Quaternion.AngleAxis(-90, new Vector3(0, 0, 1));
         _isHolding = false;
+        _pickedObject.GetComponent<Projectile>().Cooldown();
         _pickedObject.transform.parent = null;
     }
 }
