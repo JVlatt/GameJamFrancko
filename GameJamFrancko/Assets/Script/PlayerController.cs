@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour {
 
     private int _life;
     [SerializeField]
+    private KeyCode _shoot;
+    [SerializeField]
+    private KeyCode _pickup;
+    [SerializeField]
+    private string[] _playerController = new string[2];
+    [SerializeField]
     private float _speed;
 
     
@@ -25,12 +31,12 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	
-	void Update () {
+	void FixedUpdate () {
 
         Move();
         if(_isHolding)
         {          
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(_pickup))
             {
                 if(_canReload)
                 {
@@ -44,7 +50,7 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-        else if(_canReload && _currentCatapulte.GetComponent<Catapulte>()._isLoaded && Input.GetKeyDown(KeyCode.X))
+        else if(_canReload && _currentCatapulte.GetComponent<Catapulte>()._isLoaded && Input.GetKeyDown(_shoot))
         {
             _currentCatapulte.GetComponent<Catapulte>().Shoot();
         }
@@ -53,13 +59,13 @@ public class PlayerController : MonoBehaviour {
 
     private void Move()
     {
-        float _moveX = Input.GetAxis("Horizontal");
-        float _moveY = Input.GetAxis("Vertical");
+        float _moveX = Input.GetAxis(_playerController[0]);
+        float _moveY = Input.GetAxis(_playerController[1]);
         transform.Translate(new Vector2(_moveX * _speed, _moveY * _speed));
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Pickable" && Input.GetKeyDown(KeyCode.E) && !_isHolding)
+        if (collision.tag == "Pickable" && Input.GetKeyDown(_pickup) && !_isHolding)
         {
             Debug.Log("Trigger");
             Pickup(collision.gameObject);

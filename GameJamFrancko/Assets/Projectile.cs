@@ -20,5 +20,7 @@ public class Projectile : MonoBehaviour {
     {
         if (_canMove)
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
+        if (transform.position == _target)
+            _canMove = false;
     }
 }
