@@ -18,11 +18,11 @@ public class GameControler : MonoBehaviour {
     private int _currentWave = -1;
     private bool _haveSpawn = true;
 
+
     private void Start()
     {
         foreach (var _wave in _waves)
         {
-            Debug.Log(1);
             _waveList.Add(_wave.GetComponent<Wave>());
         }
     }
