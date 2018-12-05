@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c5a1d91cbb9cf488ded27143453473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cooldown: 1
 --- !u!58 &631609151
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -567,7 +568,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1537889836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.01, y: -3.203, z: -0.05361928}
+  m_LocalPosition: {x: -2.21, y: -1.64, z: -0.05361928}
   m_LocalScale: {x: 0.16796, y: 0.16796, z: 0.16796}
   m_Children: []
   m_Father: {fileID: 0}
@@ -648,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c5a1d91cbb9cf488ded27143453473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cooldown: 1
 --- !u!58 &1543609350
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -705,6 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c5a1d91cbb9cf488ded27143453473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cooldown: 1
 --- !u!58 &1783243304
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -773,7 +776,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1783243302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.52, y: -1.82, z: -0.05361928}
+  m_LocalPosition: {x: -3.451, y: -3.229, z: -0.05361928}
   m_LocalScale: {x: 0.16796, y: 0.16796, z: 0.16796}
   m_Children: []
   m_Father: {fileID: 0}

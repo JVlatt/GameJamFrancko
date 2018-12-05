@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     private GameObject _pickedObject;
     private GameObject _currentCatapulte;
 
+    private float m_lastPressed;
+
     private int _life;
     [SerializeField]
     private KeyCode _shoot;
@@ -28,10 +30,11 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         _rb = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
+        m_lastPressed = Time.time;
 	}
 	
 	
-	void FixedUpdate () {
+	void Update () {
 
         Move();
         if(_isHolding)
@@ -65,8 +68,9 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Pickable" && Input.GetKeyDown(_pickup) && !_isHolding)
+        if (collision.tag == "Pickable" && Input.GetKeyUp(_pickup) && !_isHolding)
         {
+            collision.GetComponent<CircleCollider2D>().enabled = false;
             Debug.Log("Trigger");
             Pickup(collision.gameObject);
         }        
@@ -90,11 +94,11 @@ public class PlayerController : MonoBehaviour {
 
     private void Pickup(GameObject _pickable)
     {
+        _isHolding = true;
         _pickable.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
         _pickable.gameObject.transform.parent = transform;
         _pickable.transform.rotation = Quaternion.AngleAxis(90, new Vector3(0,0,1));
         _pickedObject = _pickable;
-        StartCoroutine("Wait");
     }
     private void PutDown()
     {
@@ -102,11 +106,5 @@ public class PlayerController : MonoBehaviour {
         _pickedObject.transform.rotation = Quaternion.AngleAxis(-90, new Vector3(0, 0, 1));
         _isHolding = false;
         _pickedObject.transform.parent = null;
-    }
-    
-    IEnumerator Wait()
-    {
-        yield return new WaitForEndOfFrame();
-        _isHolding = true;
     }
 }
