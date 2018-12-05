@@ -9,8 +9,7 @@ public class Projectile : MonoBehaviour {
     private float _speed = 4;
     private bool _canMove = false;
 
-    [SerializeField]
-    private float _cooldown = 1f;
+    private float _cooldown = 0.2f;
     private float _timer = 0;
 
     private CircleCollider2D _collider;

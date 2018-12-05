@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour {
                 if(_canReload)
                 {
                     _currentCatapulte.GetComponent<Catapulte>().Reload(_pickedObject);
+                    _pickedObject.GetComponent<Projectile>().Cooldown();
                     _pickedObject = null;
                     _isHolding = false;
                 }
