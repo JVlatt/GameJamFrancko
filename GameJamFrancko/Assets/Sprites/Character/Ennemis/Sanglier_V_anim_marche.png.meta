@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: f81ba3d6df67127458b0142968319d71
+guid: f01170737dff1904082d446dc250e66a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_02_anim_carry_0
-    21300002: Player_02_anim_carry_1
-    21300004: Player_02_anim_carry_2
+    21300000: Sanglier_V_anim_marche_0
+    21300002: Sanglier_V_anim_marche_1
+    21300004: Sanglier_V_anim_marche_2
+    21300006: Sanglier_V_anim_marche_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -87,13 +88,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_02_anim_carry_0
+      name: Sanglier_V_anim_marche_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 2
-        width: 45
-        height: 55
+        x: 10
+        y: 14
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,19 +102,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18d41aa7809c68e438fffa2cd4c5afab
+      spriteID: 9fd12a7f9143eeb41be8904ef411d6c1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_02_anim_carry_1
+      name: Sanglier_V_anim_marche_1
       rect:
         serializedVersion: 2
-        x: 73
-        y: 2
-        width: 50
-        height: 55
+        x: 74
+        y: 10
+        width: 42
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,19 +122,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a35aa3f24fc7542b508ba1a8d6405c
+      spriteID: fd5d902542d0d8241ac9a95c70877192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_02_anim_carry_2
+      name: Sanglier_V_anim_marche_2
       rect:
         serializedVersion: 2
-        x: 133
-        y: 2
-        width: 50
-        height: 56
+        x: 138
+        y: 14
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +142,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c35187cc5b6682f4cb1504f220f44973
+      spriteID: b0279939ff4855648863d55cb1c916b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sanglier_V_anim_marche_3
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 10
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e1cc8d40a807540abbe0d82aa53c3b
       vertices: []
       indices: 
       edges: []
@@ -149,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f9cf727d0ac560846baa47872f3dee4d
+    spriteID: 00ab291ca65d9b04b8ec13bc20f9687f
     vertices: []
     indices: 
     edges: []

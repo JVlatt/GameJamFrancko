@@ -49,7 +49,14 @@ public class GameControler : MonoBehaviour {
             float y = UnityEngine.Random.Range(_spawnRangeY.x, _spawnRangeY.y);
             var instance = Instantiate(_sanglier, new Vector3(_spawnX, y, 0), new Quaternion());
             _sangliers.Add(instance);
-            _sangliers.Remove(instance);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("game over");
+        //if(collision.tag == "Ennemi") game over
+        _sangliers.Remove(collision.gameObject);
+        Destroy(collision.gameObject);
     }
 }
