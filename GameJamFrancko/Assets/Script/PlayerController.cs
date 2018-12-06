@@ -70,9 +70,11 @@ public class PlayerController : MonoBehaviour {
 
     private void Move()
     {
-        float _moveX = Input.GetAxis(_playerController[0]);
-        float _moveY = Input.GetAxis(_playerController[1]);
-        transform.Translate(new Vector2(_moveX * _speed, _moveY * _speed));
+        Vector2 _move = new Vector2(Input.GetAxis(_playerController[0]), Input.GetAxis(_playerController[1]));
+        //float _moveX = Input.GetAxis(_playerController[0]);
+        //float _moveY = Input.GetAxis(_playerController[1]);
+        transform.Translate(_move*_speed*Time.deltaTime,Space.World);
+        transform.Rotate(Vector3.forward, Vector2.SignedAngle(transform.TransformDirection(Vector2.down), _move));
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -104,8 +106,8 @@ public class PlayerController : MonoBehaviour {
     private void Pickup(GameObject _pickable)
     {
         _isHolding = true;
-        _pickable.transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
         _pickable.gameObject.transform.parent = transform;
+        _pickable.transform.localPosition = new Vector2(0,-0.25f);
         _pickable.transform.rotation = Quaternion.AngleAxis(90, new Vector3(0,0,1));
         _pickedObject = _pickable;
     }

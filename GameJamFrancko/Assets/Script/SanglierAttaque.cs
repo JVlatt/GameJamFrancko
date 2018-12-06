@@ -39,7 +39,7 @@ public class SanglierAttaque : Sanglier {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player" && _timer<=0)
         {
             _timer = _cooldown;
             _currentLapin = null;

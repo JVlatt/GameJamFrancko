@@ -54,9 +54,11 @@ public class GameControler : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("game over");
-        //if(collision.tag == "Ennemi") game over
-        _sangliers.Remove(collision.gameObject);
-        Destroy(collision.gameObject);
+        if (collision.tag == "Ennemi" && collision.isTrigger==false)
+        {
+            Debug.Log("game over");
+            _sangliers.Remove(collision.gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 }

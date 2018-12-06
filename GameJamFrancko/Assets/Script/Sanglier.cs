@@ -21,8 +21,8 @@ public class Sanglier : MonoBehaviour {
 
     protected void Move()
     {
-        transform.Translate(_direction*_speed,Space.World);
-        if(Math.Abs( Vector2.Angle(Vector2.right, _direction))>1) transform.Rotate(Vector3.forward,Vector2.SignedAngle(transform.TransformDirection(Vector2.right),_direction));
+        transform.Translate(_direction*_speed*Time.deltaTime,Space.World);
+        transform.Rotate(Vector3.forward,Vector2.SignedAngle(transform.TransformDirection(Vector2.down),_direction));
     }
 
 }
