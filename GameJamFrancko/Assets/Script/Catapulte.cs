@@ -9,10 +9,13 @@ public class Catapulte : MonoBehaviour {
 
     public void Reload(GameObject ammo)
     {
-        ammo.transform.parent = null;
-        ammo.transform.position = transform.position;
-        _isLoaded = true;
-        _ammoObject = ammo;
+        if(_isLoaded == false)
+        { 
+            ammo.transform.parent = null;
+            ammo.transform.position = transform.position;
+            _isLoaded = true;
+            _ammoObject = ammo;
+        }
     }
 
     public void Shoot()

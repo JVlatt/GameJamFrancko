@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
         {          
             if(Input.GetKeyDown(_pickup) && _timer<=0)
             {
-                if(_canReload)
+                if(_canReload && !_currentCatapulte.GetComponent<Catapulte>()._isLoaded)
                 {
                     _currentCatapulte.GetComponent<Catapulte>().Reload(_pickedObject);
                     _pickedObject = null;
@@ -71,8 +71,6 @@ public class PlayerController : MonoBehaviour {
     private void Move()
     {
         Vector2 _move = new Vector2(Input.GetAxis(_playerController[0]), Input.GetAxis(_playerController[1]));
-        //float _moveX = Input.GetAxis(_playerController[0]);
-        //float _moveY = Input.GetAxis(_playerController[1]);
         transform.Translate(_move*_speed*Time.deltaTime,Space.World);
         transform.Rotate(Vector3.forward, Vector2.SignedAngle(transform.TransformDirection(Vector2.down), _move));
     }

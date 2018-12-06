@@ -351,7 +351,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 631609149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.45, y: -3.203, z: -0.05361928}
+  m_LocalPosition: {x: -2.47, y: -3.203, z: -0.05361928}
   m_LocalScale: {x: 0.16796, y: 0.16796, z: 0.16796}
   m_Children: []
   m_Father: {fileID: 0}
@@ -586,7 +586,6 @@ GameObject:
   - component: {fileID: 1543609348}
   - component: {fileID: 1543609350}
   - component: {fileID: 1543609349}
-  - component: {fileID: 1543609352}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Pickable
@@ -679,26 +678,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1543609352
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1543609347}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!1 &1783243302
 GameObject:
   m_ObjectHideFlags: 0
