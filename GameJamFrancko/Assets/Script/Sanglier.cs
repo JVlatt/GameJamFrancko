@@ -35,6 +35,7 @@ public class Sanglier : MonoBehaviour {
     protected void Death()
     {
         _collider.enabled = false;
+        _speed = 0;
         _anim.SetTrigger("deathTrigger");
         if (_anim.GetCurrentAnimatorStateInfo(0).IsName("flaquesang"))
         {
@@ -47,4 +48,6 @@ public class Sanglier : MonoBehaviour {
     {
         _hp -= amount;
     }
+
+    
 }
