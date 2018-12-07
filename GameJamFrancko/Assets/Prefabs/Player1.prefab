@@ -118,13 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd0dd6582e3d494b88439b38810f087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shoot: 120
-  _pickup: 101
   _playerController:
   - Horizontal1
   - Vertical1
+  - Pickup1
+  - Fire1
   _speed: 2
-  _pickupCooldown: 0.05
+  _pickupCooldown: 0.1
 --- !u!212 &212646292482660984
 SpriteRenderer:
   m_ObjectHideFlags: 1
