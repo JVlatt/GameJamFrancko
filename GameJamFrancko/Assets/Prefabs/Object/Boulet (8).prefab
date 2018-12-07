@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58167860314497044}
   - component: {fileID: 114522912307938090}
   m_Layer: 0
-  m_Name: Boulet (5) 1
+  m_Name: Boulet (8)
   m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c5a1d91cbb9cf488ded27143453473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 0
 --- !u!212 &212837554978633378
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58084069885431702}
   - component: {fileID: 114823761265689350}
   m_Layer: 0
-  m_Name: Bullet (2)
+  m_Name: PickableBody
   m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
