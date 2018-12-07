@@ -243,7 +243,7 @@ Prefab:
     - target: {fileID: 114495892269890742, guid: be3e8f16c408b03449684076108d8fee,
         type: 2}
       propertyPath: _speed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212874153741242648, guid: be3e8f16c408b03449684076108d8fee,
         type: 2}
@@ -582,21 +582,6 @@ Prefab:
     - target: {fileID: 4967831175973664, guid: dcaf040e8b2af5d49a642ae888ef367c, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 95257944608420608, guid: dcaf040e8b2af5d49a642ae888ef367c,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7353a70cef68e3840bbac366952d26d8, type: 2}
-    - target: {fileID: 114797268529450746, guid: dcaf040e8b2af5d49a642ae888ef367c,
-        type: 2}
-      propertyPath: _pickupCooldown
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50563842684320136, guid: dcaf040e8b2af5d49a642ae888ef367c,
-        type: 2}
-      propertyPath: m_SleepingMode
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcaf040e8b2af5d49a642ae888ef367c, type: 2}

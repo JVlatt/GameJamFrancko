@@ -41,4 +41,9 @@ public class Sanglier : MonoBehaviour {
             Instantiate(Resources.Load("PickableBody"),transform.position,Quaternion.identity);
         }
     }
+
+    public void DealDammage(int amount)
+    {
+        _hp -= amount;
+    }
 }

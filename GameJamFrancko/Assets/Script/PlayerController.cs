@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour {
     private int _life;
 
     [SerializeField]
-    private string[] _playerController = new string[4];
+    private KeyCode[] _playerControllerKeyCode = new KeyCode[2];
+    [SerializeField]
+    private string[] _playerControllerAxis = new string[2];
     [SerializeField]
     private float _speed;
     [SerializeField]
@@ -40,12 +42,10 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         if (_timer > 0) _timer -= Time.deltaTime;
-        Debug.Log(_rb.velocity);
-
         Move();
         if(_isHolding)
         {          
-            if(Input.GetButtonDown(_playerController[2]) && _timer<=0)
+            if(Input.GetKeyDown(_playerControllerKeyCode[0]) && _timer<=0)
             {
                 if(_canReload && !_currentCatapulte.GetComponent<Catapulte>()._isLoaded)
                 {
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
                 _timer = _pickupCooldown;
             }
         }
-        else if(_canReload && _currentCatapulte.GetComponent<Catapulte>()._isLoaded && Input.GetButtonDown(_playerController[3]))
+        else if(_canReload && _currentCatapulte.GetComponent<Catapulte>()._isLoaded && Input.GetKeyDown(_playerControllerKeyCode[1]))
         {
             _currentCatapulte.GetComponent<Catapulte>().Shoot();
         }
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Move()
     {
-        Vector2 _move = new Vector2(Input.GetAxis(_playerController[0]), Input.GetAxis(_playerController[1]));
+        Vector2 _move = new Vector2(Input.GetAxis(_playerControllerAxis[0]), Input.GetAxis(_playerControllerAxis[1]));
 
         if(_move.magnitude >= 0.2f)
         {
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Pickable" && Input.GetButtonDown(_playerController[2]) && !_isHolding && _timer<=0)
+        if (collision.tag == "Pickable" && Input.GetKeyDown(_playerControllerKeyCode[0]) && !_isHolding && _timer<=0)
         {
             collision.GetComponent<CircleCollider2D>().enabled = false;
             _timer = _pickupCooldown;
