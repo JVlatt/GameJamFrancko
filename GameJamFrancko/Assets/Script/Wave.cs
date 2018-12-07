@@ -8,5 +8,6 @@ public class Wave : MonoBehaviour {
 
     public List<GameObject> _enemys=new List<GameObject>();
     public float _cooldown;
+    public List<GameObject> _objects = new List<GameObject>();
     
 }

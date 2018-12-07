@@ -9,11 +9,11 @@ public class Sanglier : MonoBehaviour {
     protected float _speed;
     [SerializeField]
     protected float _hp;
+    [SerializeField]
     protected Vector2 _direction;
     private Animator _anim;
     private BoxCollider2D _collider;
 	void Start () {
-        _direction = Vector2.left;
         _anim = GetComponent<Animator>();
         _collider = GetComponent<BoxCollider2D>();
 	}

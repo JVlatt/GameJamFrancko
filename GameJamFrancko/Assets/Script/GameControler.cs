@@ -50,6 +50,10 @@ public class GameControler : MonoBehaviour {
             var instance = Instantiate(_sanglier, new Vector3(_spawnX, y, 0), new Quaternion());
             _sangliers.Add(instance);
         }
+        foreach (var _objet in _waveList[_currentWave]._objects)
+        {
+            Instantiate(_objet);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
