@@ -75,10 +75,14 @@ public class PlayerController : MonoBehaviour {
     private void Move()
     {
         Vector2 _move = new Vector2(Input.GetAxis(_playerController[0]), Input.GetAxis(_playerController[1]));
-        if (_move.magnitude != 0) _animator.SetBool("Move", true);
-        else _animator.SetBool("Move", false);
-        transform.Translate(_move*_speed*Time.deltaTime,Space.World);
-        transform.Rotate(Vector3.forward, Vector2.SignedAngle(transform.TransformDirection(Vector2.down), _move));
+
+        if(_move.magnitude >= 0.1f)
+        {
+            _animator.SetBool("Move", true);
+            transform.Translate(_move * _speed * Time.deltaTime, Space.World);
+            transform.Rotate(Vector3.forward, Vector2.SignedAngle(transform.TransformDirection(Vector2.down), _move));
+        }
+            else _animator.SetBool("Move", false);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
