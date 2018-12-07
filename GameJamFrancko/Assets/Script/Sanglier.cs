@@ -16,7 +16,8 @@ public class Sanglier : MonoBehaviour {
 	void Start () {
         _anim = GetComponent<Animator>();
         _collider = GetComponent<BoxCollider2D>();
-	}
+        SoundControler._soundControler.PlaySound(SoundControler._soundControler._sanglierDeath);
+    }
 	
 
 	void Update () {
@@ -37,8 +38,10 @@ public class Sanglier : MonoBehaviour {
         _collider.enabled = false;
         _speed = 0;
         _anim.SetTrigger("deathTrigger");
+        
         if (_anim.GetCurrentAnimatorStateInfo(0).IsName("flaquesang"))
         {
+            
             Instantiate(Resources.Load("PickableBody"),transform.position,Quaternion.identity);
             Destroy(gameObject);
         }

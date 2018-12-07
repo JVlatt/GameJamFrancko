@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour {
     private GameObject _pickedObject;
     private GameObject _currentCatapulte;
 
-    private float m_lastPressed;
-
     private float _timer;
 
     private int _life;
@@ -35,7 +33,6 @@ public class PlayerController : MonoBehaviour {
         _rb = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
-        m_lastPressed = Time.time;
 	}
 	
 	
@@ -110,6 +107,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Pickup(GameObject _pickable)
     {
+        SoundControler._soundControler.PlaySound(SoundControler._soundControler._pickup);
         _isHolding = true;
         _animator.SetBool("isHolding", _isHolding);
         _pickable.gameObject.transform.parent = transform;
@@ -119,6 +117,7 @@ public class PlayerController : MonoBehaviour {
     }
     private void PutDown()
     {
+        SoundControler._soundControler.PlaySound(SoundControler._soundControler._drop);
         _pickedObject.transform.position = transform.position;
         _pickedObject.transform.rotation = Quaternion.AngleAxis(-90, new Vector3(0, 0, 1));
         _isHolding = false;

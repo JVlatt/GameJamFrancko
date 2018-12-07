@@ -28,6 +28,8 @@ public class Catapulte : MonoBehaviour {
         _ammoObject.GetComponent<Projectile>().FlyTo(_target.transform.position);
         _ammoObject = null;
         _isLoaded = false;
+        SoundControler._soundControler.PlaySound(SoundControler._soundControler._catapulte);
+        StartCoroutine("Wait");
     }
 
     private void Update()
@@ -42,5 +44,10 @@ public class Catapulte : MonoBehaviour {
         {
             _target.transform.Translate(_move * _speed * Time.deltaTime, Space.World);
         }
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        SoundControler._soundControler.PlaySound(SoundControler._soundControler._rire);
     }
 }
