@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D _rb;
     private BoxCollider2D _boxCollider;
+    private Animator _animator;
 
     private bool _isHolding = false;
     private bool _canReload = false;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         _rb = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
+        _animator = GetComponent<Animator>();
         m_lastPressed = Time.time;
 	}
 	
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         if (_timer > 0) _timer -= Time.deltaTime;
+        Debug.Log(_rb.velocity);
 
         Move();
         if(_isHolding)
@@ -58,6 +61,7 @@ public class PlayerController : MonoBehaviour {
                     _pickedObject.GetComponent<CircleCollider2D>().enabled = true;
                     PutDown();
                 }
+                _animator.SetBool("isHolding", _isHolding);
                 _timer = _pickupCooldown;
             }
         }
@@ -71,6 +75,8 @@ public class PlayerController : MonoBehaviour {
     private void Move()
     {
         Vector2 _move = new Vector2(Input.GetAxis(_playerController[0]), Input.GetAxis(_playerController[1]));
+        if (_move.magnitude != 0) _animator.SetBool("Move", true);
+        else _animator.SetBool("Move", false);
         transform.Translate(_move*_speed*Time.deltaTime,Space.World);
         transform.Rotate(Vector3.forward, Vector2.SignedAngle(transform.TransformDirection(Vector2.down), _move));
     }
@@ -104,6 +110,7 @@ public class PlayerController : MonoBehaviour {
     private void Pickup(GameObject _pickable)
     {
         _isHolding = true;
+        _animator.SetBool("isHolding", _isHolding);
         _pickable.gameObject.transform.parent = transform;
         _pickable.transform.localPosition = new Vector2(0,-0.25f);
         _pickable.transform.rotation = Quaternion.AngleAxis(90, new Vector3(0,0,1));
