@@ -39,6 +39,7 @@ public class Sanglier : MonoBehaviour {
         if (_anim.GetCurrentAnimatorStateInfo(0).IsName("flaquesang"))
         {
             Instantiate(Resources.Load("PickableBody"),transform.position,Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

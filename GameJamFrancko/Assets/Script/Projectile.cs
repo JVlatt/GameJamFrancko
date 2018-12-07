@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour {
     private float _speed = 4;
     private bool _canMove = false;
 
+    [SerializeField]
+    private int _damage;
+
 
     private CircleCollider2D _collider;
 
@@ -35,6 +38,15 @@ public class Projectile : MonoBehaviour {
         {
             _canMove = false;
             _collider.enabled = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Ennemi")
+        {
+            collision.gameObject.GetComponent<Sanglier>().DealDammage(_damage);
+            Destroy(gameObject);
         }
     }
 }
