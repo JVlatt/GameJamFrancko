@@ -11,8 +11,8 @@ public class Sanglier : MonoBehaviour {
     protected float _hp;
     [SerializeField]
     protected Vector2 _direction;
-    private Animator _anim;
-    private BoxCollider2D _collider;
+    protected Animator _anim;
+    protected BoxCollider2D _collider;
 	void Start () {
         _anim = GetComponent<Animator>();
         _collider = GetComponent<BoxCollider2D>();
@@ -37,14 +37,19 @@ public class Sanglier : MonoBehaviour {
     {
         _collider.enabled = false;
         _speed = 0;
-        _anim.SetTrigger("deathTrigger");
-        
-        if (_anim.GetCurrentAnimatorStateInfo(0).IsName("flaquesang"))
+        if (_anim != null)
         {
-            
-            Instantiate(Resources.Load("PickableBody"),transform.position,Quaternion.identity);
-            Destroy(gameObject);
-        }
+            _anim.SetTrigger("deathTrigger");
+            TutoControler._myTuto.ValidState(2);
+
+            if (_anim.GetCurrentAnimatorStateInfo(0).IsName("flaquesang"))
+            {
+
+                Instantiate(Resources.Load("PickableBody"), transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+        }else Destroy(gameObject);
+        GameControler._gc._sangliers.Remove(this.gameObject);
     }
 
     public void DealDammage(int amount)

@@ -14,16 +14,19 @@ public class SanglierAttaque : Sanglier {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        _anim = GetComponent<Animator>();
+        _collider = GetComponent<BoxCollider2D>();
+        SoundControler._soundControler.PlaySound(SoundControler._soundControler._sanglierDeath);
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (_timer > 0) _timer -= Time.deltaTime;
         Search();
         Move();
-        Debug.Log(_currentLapin);
-	}
+        if (_hp <= 0)
+            Death();
+    }
 
     private void Search()
     {

@@ -26,12 +26,19 @@ public class TutoControler : MonoBehaviour {
     {
         if (_tutoState == state)
         {
-            state++;
-            _myAnimator.SetInteger("CurrentState", state);
-            switch (state)
+            _tutoState++;
+
+            _myAnimator.SetInteger("stape", _tutoState);
+            switch (_tutoState)
             {
+                case 0:
+                    text.text = "Ramassez la pierre en utilisant la touche A";
+                    break;
+                case 1:
+                    text.text = "Armez la catapulte en utilisant à nouveau la touche A";
+                    break;
                 case 2:
-                    text.text = "Éliminez-le";
+                    text.text = "Tirez avec x pour détruire l'épouvantail";
                     break;
                 case 3:
                     text.text = "La catapulte est vide ! Vous devez recharger !";

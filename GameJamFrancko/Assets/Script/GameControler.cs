@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameControler : MonoBehaviour {
 
+    public static GameControler _gc;
+
     [SerializeField]
     private List<GameObject> _waves;
     [SerializeField]
@@ -12,7 +14,7 @@ public class GameControler : MonoBehaviour {
     [SerializeField]
     private float _spawnX;
 
-    private List<GameObject> _sangliers = new List<GameObject>();
+    public List<GameObject> _sangliers = new List<GameObject>();
     private List<Wave> _waveList = new List<Wave>(); 
     private float _timer;
     private int _currentWave = -1;
@@ -21,6 +23,7 @@ public class GameControler : MonoBehaviour {
 
     private void Start()
     {
+        _gc = this;
         foreach (var _wave in _waves)
         {
             _waveList.Add(_wave.GetComponent<Wave>());
@@ -39,6 +42,7 @@ public class GameControler : MonoBehaviour {
         _haveSpawn = false;
         _currentWave++;
         _timer = _waveList[_currentWave]._cooldown;
+        TutoControler._myTuto.ValidState(3);
     }
 
     private void Spawn()

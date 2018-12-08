@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 	
 	
 	void Update () {
-
+        
         if (_timer > 0) _timer -= Time.deltaTime;
         Move();
         if(_isHolding)
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour {
                     _currentCatapulte.GetComponent<Catapulte>().Reload(_pickedObject);
                     _pickedObject = null;
                     _isHolding = false;
+                    TutoControler._myTuto.ValidState(1);
                 }
                 else
                 {
@@ -84,8 +85,8 @@ public class PlayerController : MonoBehaviour {
         {
             collision.GetComponent<CircleCollider2D>().enabled = false;
             _timer = _pickupCooldown;
-            Debug.Log("Trigger");
             Pickup(collision.gameObject);
+            TutoControler._myTuto.ValidState(0);
         }        
     }
     private void OnTriggerEnter2D(Collider2D collision)
